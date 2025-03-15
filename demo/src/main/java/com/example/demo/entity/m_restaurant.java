@@ -1,5 +1,11 @@
 package com.example.demo.entity;
 
+import java.util.Collection;
+import java.util.List;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -7,7 +13,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "m_restaurant")
-public class m_restaurant {
+public class m_restaurant implements UserDetails{
 
     @Id
     @Column(name = "id")
@@ -163,4 +169,40 @@ public class m_restaurant {
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		return List.of();
+	}
+
+	@Override
+	public String getPassword() {
+		return pswd;
+	}
+
+	@Override
+	public String getUsername() {
+		return email;
+	}
+
+	@Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+
 }

@@ -42,29 +42,29 @@ public class restaurantController {
 		return new ResponseEntity<>(map, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value="/login",method=RequestMethod.POST)
-	public ResponseEntity<?> login(@RequestBody restaurant restaurant)
-	{
-		String Message=restaurantService.login(restaurant.getEmail(),restaurant.getPswd());
-		Map<String,String> map=new HashMap<String,String>();
-		map.put("Message", Message);
-		map.put("Status", "Success");
-		return new ResponseEntity<>(map, HttpStatus.OK);
-	}
+	// @RequestMapping(value="/login",method=RequestMethod.POST)
+	// public ResponseEntity<?> login(@RequestBody restaurant restaurant)
+	// {
+	// 	String Message=restaurantService.login(restaurant.getEmail(),restaurant.getPswd());
+	// 	Map<String,String> map=new HashMap<String,String>();
+	// 	map.put("Message", Message);
+	// 	map.put("Status", "Success");
+	// 	return new ResponseEntity<>(map, HttpStatus.OK);
+	// }
 	
-	@RequestMapping(value="/register",method=RequestMethod.POST)
-	public ResponseEntity<?> register(@RequestBody restaurant restaurant)
-	{
-		String Message=restaurantService.register(restaurant.getUserName(),restaurant.getPswd(),
-				restaurant.getCompanyId(),restaurant.getEmail(),restaurant.getTotalTables(),
-				restaurant.getBankAccountNumber(),restaurant.getIfscCode(),
-				restaurant.getGstNumber(),restaurant.getAddress(),
-				restaurant.getPhoneNumber());
-		Map<String,String> map=new HashMap<String,String>();
-		map.put("Message", Message);
-		map.put("Status", "Success");
-		return new ResponseEntity<>(map, HttpStatus.OK);
-	}
+	// @RequestMapping(value="/register",method=RequestMethod.POST)
+	// public ResponseEntity<?> register(@RequestBody restaurant restaurant)
+	// {
+	// 	String Message=restaurantService.register(restaurant.getUserName(),restaurant.getPswd(),
+	// 			restaurant.getCompanyId(),restaurant.getEmail(),restaurant.getTotalTables(),
+	// 			restaurant.getBankAccountNumber(),restaurant.getIfscCode(),
+	// 			restaurant.getGstNumber(),restaurant.getAddress(),
+	// 			restaurant.getPhoneNumber());
+	// 	Map<String,String> map=new HashMap<String,String>();
+	// 	map.put("Message", Message);
+	// 	map.put("Status", "Success");
+	// 	return new ResponseEntity<>(map, HttpStatus.OK);
+	// }
 	
 	@RequestMapping(value="/createMenu",method=RequestMethod.POST)
 	public ResponseEntity<?> createMenu(@RequestBody menu menu)
